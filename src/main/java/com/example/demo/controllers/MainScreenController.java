@@ -12,7 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.List;
 
 /**
@@ -24,6 +25,7 @@ import java.util.List;
 
 @Controller
 public class MainScreenController {
+        private static final Logger logger = LoggerFactory.getLogger(MainScreenController.class);
    // private final PartRepository partRepository;
    // private final ProductRepository productRepository;'
 
@@ -62,6 +64,7 @@ public class MainScreenController {
             if (product.getInv() > 0) {
                 product.setInv(product.getInv() - 1);
                 productService.save(product);
+                logger.info("Purchase successful - Product ID: {}, Name: {}, Remaining inventory: {}", productId, product.getName(), product.getInv());
                 return "redirect:/purchaseSuccess";
             }
             /* Redirects to the error page if insufficient stock */
@@ -71,6 +74,7 @@ public class MainScreenController {
         }
         /* Redirects to the error page if product not found */
         catch (Exception e) {
+                    logger.error("Purchase failed - Product ID: {} not found or error occurred: {}", productId, e.getMessage());
             return "redirect:/insufficientStock";
         }
     }

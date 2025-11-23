@@ -2,7 +2,7 @@
 
 A Spring Boot inventory management system for a computer parts store with MVC architecture, Thymeleaf templates, and custom validation logic.
 
-[![Live Demo](https://img.shields.io/badge/demo-live-success?logo=render&logoColor=white&color=28a745)]
+![Live Demo](https://img.shields.io/badge/demo-live-success?logo=render&logoColor=white&color=28a745)
 
 ## Live Demo
 

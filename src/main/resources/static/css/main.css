@@ -1,0 +1,424 @@
+/* ===== PC PARTS HUB - MAIN STYLESHEET ===== */
+
+/* ===== COLOR PALETTE ===== */
+:root {
+    --primary: #2563EB;
+    --primary-dark: #1D4ED8;
+    --secondary: #8B5CF6;
+    --bg-light: #F3F4F6;
+    --bg-white: #FFFFFF;
+    --border: #E2E8F0;
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --success: #10B981;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+}
+
+/* ===== TYPOGRAPHY & BASE STYLES ===== */
+* {
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    padding: 32px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== HEADER STYLING ===== */
+h1 {
+    color: var(--text-primary);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: var(--border);
+    margin: 16px 0 24px 0;
+}
+
+p {
+    color: var(--text-primary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+/* ===== FORM & INPUT STYLING ===== */
+form {
+    background-color: var(--bg-light);
+    padding: 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+label {
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="submit"],
+input[type="button"],
+select,
+textarea {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    background-color: var(--bg-white);
+    color: var(--text-primary);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-control {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 12px !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+}
+
+/* ===== BUTTON STYLING ===== */
+.btn {
+    border-radius: 6px;
+    font-weight: 500;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.btn:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Primary Button */
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+    transform: translateY(-1px);
+    color: white;
+}
+
+.btn-primary:active {
+    box-shadow: 0 1px 2px rgba(37, 99, 235, 0.2);
+    transform: translateY(0);
+}
+
+/* Danger Button (Delete) */
+.btn-danger {
+    background-color: var(--danger);
+    color: white;
+    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
+}
+
+.btn-danger:hover {
+    background-color: #DC2626;
+    box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+    transform: translateY(-1px);
+    color: white;
+}
+
+.btn-danger:active {
+    box-shadow: 0 1px 2px rgba(239, 68, 68, 0.2);
+    transform: translateY(0);
+}
+
+/* Success Button */
+.btn-success {
+    background-color: var(--success);
+    color: white;
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+}
+
+.btn-success:hover {
+    background-color: #059669;
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+    transform: translateY(-1px);
+    color: white;
+}
+
+/* Remove Bootstrap btn-sm sizing - use consistent sizing */
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 0.95rem;
+}
+
+/* ===== TABLE STYLING ===== */
+.table {
+    margin-bottom: 24px;
+    border-collapse: collapse;
+    background-color: var(--bg-white);
+}
+
+.table thead {
+    background-color: var(--primary);
+    color: white;
+}
+
+.table thead th {
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background-color 0.15s ease;
+}
+
+.table tbody tr:hover {
+    background-color: var(--bg-light);
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: var(--bg-white);
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #FAFBFC;
+}
+
+.table tbody td {
+    padding: 12px 16px;
+    border: none;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+.table tbody td:first-child {
+    font-weight: 500;
+}
+
+/* Remove Bootstrap table-bordered and table-striped defaults */
+.table-bordered,
+.table-striped {
+    border: none;
+}
+
+.table-bordered thead,
+.table-striped thead {
+    background-color: var(--primary);
+}
+
+/* ===== ERROR STYLING ===== */
+.error {
+    color: var(--danger);
+    font-size: 0.85rem;
+    margin-top: 4px;
+    display: block;
+}
+
+.error-list {
+    background-color: #FEE2E2;
+    border-left: 4px solid var(--danger);
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 16px;
+    color: var(--danger);
+}
+
+.error-list ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.error-list li {
+    margin-bottom: 4px;
+}
+
+/* ===== ALERT/MESSAGE CONTAINERS ===== */
+.alert-container {
+    background-color: var(--bg-white);
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    max-width: 500px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.alert-container.warning {
+    border-left: 4px solid var(--warning);
+}
+
+.alert-container h2 {
+    margin-top: 0;
+}
+
+.alert-container h2.warning {
+    color: var(--warning);
+}
+
+.alert-container h2.success {
+    color: var(--success);
+}
+
+/* Centered page layout for alert pages */
+body.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* ===== LINKS ===== */
+a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== HEADER LAYOUT ===== */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.page-header h1 {
+    margin: 0;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+    }
+
+    .alert-container {
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+
+    .table tbody td,
+    .table thead th {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    form {
+        padding: 12px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    .table {
+        font-size: 0.85rem;
+    }
+
+    .table tbody td,
+    .table thead th {
+        padding: 6px 8px;
+    }
+
+    .btn {
+        padding: 4px 8px;
+        font-size: 0.8rem;
+    }
+}

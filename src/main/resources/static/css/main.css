@@ -155,37 +155,87 @@ textarea:focus {
 .btn-primary {
     background-color: var(--primary);
     color: white;
-    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
 }
 
 .btn-primary:hover {
     background-color: var(--primary-dark);
-    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
     transform: translateY(-1px);
     color: white;
 }
 
 .btn-primary:active {
-    box-shadow: 0 1px 2px rgba(37, 99, 235, 0.2);
     transform: translateY(0);
+}
+
+/* Ensure no box-shadow on any buttons */
+.btn,
+.btn-primary,
+.btn-action-primary,
+.btn-action-secondary,
+button.btn,
+button.btn-primary,
+a.btn,
+a.btn-primary {
+    box-shadow: none !important;
+}
+
+.btn:hover,
+.btn-primary:hover,
+.btn-action-primary:hover,
+.btn-action-secondary:hover,
+button.btn:hover,
+button.btn-primary:hover,
+a.btn:hover,
+a.btn-primary:hover {
+    box-shadow: none !important;
+}
+
+.btn:active,
+.btn-primary:active,
+.btn-action-primary:active,
+.btn-action-secondary:active,
+button.btn:active,
+button.btn-primary:active,
+a.btn:active,
+a.btn-primary:active {
+    box-shadow: none !important;
+}
+
+.btn:focus,
+.btn-primary:focus,
+button.btn:focus,
+button.btn-primary:focus {
+    box-shadow: none !important;
+}
+
+/* Disabled button styling */
+button:disabled,
+button[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #9CA3AF !important;
+    border-color: #9CA3AF !important;
+}
+
+button:disabled:hover,
+button[disabled]:hover {
+    background-color: #9CA3AF !important;
+    transform: none !important;
 }
 
 /* Danger Button (Delete) */
 .btn-danger {
     background-color: var(--danger);
     color: white;
-    box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
 }
 
 .btn-danger:hover {
     background-color: #DC2626;
-    box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
     transform: translateY(-1px);
     color: white;
 }
 
 .btn-danger:active {
-    box-shadow: 0 1px 2px rgba(239, 68, 68, 0.2);
     transform: translateY(0);
 }
 
@@ -193,12 +243,10 @@ textarea:focus {
 .btn-success {
     background-color: var(--success);
     color: white;
-    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
 }
 
 .btn-success:hover {
     background-color: #059669;
-    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
     transform: translateY(-1px);
     color: white;
 }
@@ -377,6 +425,20 @@ a:hover {
     .btn {
         padding: 6px 12px;
         font-size: 0.9rem;
+    }
+
+    /* Mobile responsive button stacking */
+    .btn-action-primary,
+    .btn-action-secondary {
+        display: block;
+        width: 100%;
+        margin-bottom: 8px;
+        margin-right: 0 !important;
+    }
+    
+    /* Hide visual separator on mobile */
+    td > span[style*="margin: 0 4px"] {
+        display: none;
     }
 
     .table tbody td,

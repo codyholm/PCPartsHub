@@ -78,6 +78,38 @@ public class MainScreenController {
             return "redirect:/insufficientStock";
         }
     }
+    @PostMapping("/buyPart")
+    public String buyPart(@RequestParam("partID") int partId) {
+        /* Attempts to reduce inventory of part if purchased */
+        try {
+            Part part = partService.findById(partId);
+            if (part.getInv() > 0) {
+                int newInventory = part.getInv() - 1;
+                part.setInv(newInventory);
+                
+                /* Validate business constraints */
+                if (!part.isInventoryValid()) {
+                    logger.warn("Purchase blocked - Part {} at minimum inventory threshold", partId);
+                    return "redirect:/insufficientStock";
+                }
+                
+                partService.save(part);
+                logger.info("Part purchase successful - ID: {}, Name: {}, Remaining inventory: {}", partId, part.getName(), part.getInv());
+                return "redirect:/purchaseSuccess";
+            }
+            /* Redirects to the error page if insufficient stock */
+            else {
+                logger.warn("Purchase failed - Part {} out of stock", partId);
+                return "redirect:/insufficientStock";
+            }
+        }
+        /* Redirects to the error page if part not found */
+        catch (Exception e) {
+            logger.error("Purchase error - Part {}: {}", partId, e.getMessage());
+            return "redirect:/insufficientStock";
+        }
+    }
+    
     /* Mapping for purchase success and error pages */
     @GetMapping("/purchaseSuccess")
     public String purchaseSuccessPage() {

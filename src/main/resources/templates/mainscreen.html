@@ -49,8 +49,27 @@
             <td th:text="${tempPart.name}">1</td>
             <td th:text="${tempPart.price}">1</td>
             <td th:text="${tempPart.inv}">1</td>
-            <td><a th:href="@{/showPartFormForUpdate(partID=${tempPart.id})}" class="btn btn-primary btn-sm mb-3">Update</a>
-                <a th:href="@{/deletepart(partID=${tempPart.id})}" class="btn btn-primary btn-sm mb-3"
+            <td>
+                <!-- Buy Now Button (Customer Action) -->
+                <form th:action="@{/buyPart}" method="post" style="display: inline;">
+                    <input type="hidden" name="partID" th:value="${tempPart.id}"/>
+                    <button type="submit" 
+                            class="btn btn-primary btn-sm mb-3 btn-action-primary"
+                            th:disabled="${tempPart.inv == 0}"
+                            th:aria-label="'Buy ' + ${tempPart.name}">
+                        <span th:if="${tempPart.inv > 0}">Buy Now</span>
+                        <span th:if="${tempPart.inv == 0}">Out of Stock</span>
+                    </button>
+                </form>
+                
+                <!-- Separator -->
+                <span style="margin: 0 4px; color: #E2E8F0;">|</span>
+                
+                <!-- Update and Delete Buttons (Admin Actions) -->
+                <a th:href="@{/showPartFormForUpdate(partID=${tempPart.id})}" 
+                   class="btn btn-primary btn-sm mb-3 btn-action-secondary">Update</a>
+                <a th:href="@{/deletepart(partID=${tempPart.id})}" 
+                   class="btn btn-primary btn-sm mb-3 btn-action-secondary"
                    onclick="if(!(confirm('Are you sure you want to delete this part?')))return false">Delete</a>
             </td>
         </tr>
@@ -89,9 +108,9 @@
                 <a th:href="@{/deleteproduct(productID=${tempProduct.id})}" class="btn btn-primary btn-sm mb-3"
                    onclick="if(!(confirm('Are you sure you want to delete this product?')))return false">Delete</a>
                 <!-- Add button to buy product with hidden form field to handle update-->
-                <form th:action="@{/buyProduct}" method="post" style = "display: inline;">
+                <form th:action="@{/buyProduct}" method="post" style="display: inline;">
                     <input type="hidden" name="productID" th:value="${tempProduct.id}"/>
-                    <button type="submit" class="btn btn-primary btn-sm mb-3">Buy Now</button>
+                    <button type="submit" class="btn btn-primary btn-sm mb-3 btn-action-primary">Buy Now</button>
                 </form>
             </td>
         </tr>

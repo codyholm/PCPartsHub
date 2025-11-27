@@ -1,18 +1,14 @@
 # PC Parts Hub
 
-
 A Spring Boot inventory management system for a computer parts store with MVC architecture, Thymeleaf templates, and custom validation logic.
 
-[![Live Demo](https://img.shields.io/badge/demo-live-success?logo=render&logoColor=white&color=28a745)]
+[![Live Demo](https://img.shields.io/badge/demo-live-success?logo=render&logoColor=white&color=28a745)](https://pcpartshub.onrender.com)
 
 ## Live Demo
 
-
 **[View Live Application](https://pcpartshub.onrender.com/mainscreen)** 
 
-
 ## Features
-
 
 - **Parts & Products Management** - Track individual components (GPUs, CPUs, RAM) and complete pre-built systems
 - **Buy Now Functionality** - Instant purchase with automatic inventory decrement and validation
@@ -21,8 +17,12 @@ A Spring Boot inventory management system for a computer parts store with MVC ar
 - **Sample Data Auto-Population** - Application loads with pre-configured inventory on startup
 - **Confirmation Pages** - User-friendly success/error screens for all actions (purchase, add, update, delete)
 
-
 ## Tech Stack
+
+![Java](https://img.shields.io/badge/Java-ED8B00?logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?logo=springboot&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-C71A36?logo=apachemaven&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
 
 - **Framework**: Spring Boot (Java)
 - **Template Engine**: Thymeleaf (server-side HTML rendering)
@@ -31,49 +31,28 @@ A Spring Boot inventory management system for a computer parts store with MVC ar
 - **Styling**: Bootstrap CSS
 - **Deployment**: Docker + Render
 
-
-## Getting Started
-
-
-cd PCPartsHub
-mvn clean install
-mvn spring-boot:run
-
-Visit [http://localhost:8080/mainscreen](http://localhost:8080/mainscreen) in your browser.
-
 ## Key Implementation Details
 
 
-### Business Logic
-
-
+### Inventory Management
 - Min/max inventory constraints enforced at service layer
 - Purchase validation prevents overselling with insufficient stock errors
 - Automatic inventory decrement on successful purchases
 
 
-
 ### Architecture
-
-
 - Clean MVC separation: controllers, services, repositories, domain models
 - Custom validators for inventory rules and input validation
 - Bootstrap component for sample data initialization
 
 
-
 ### Data Persistence
-
-
 - JPA entity relationships between parts and products
 - Repository pattern for data access abstraction
 - Embedded database for local development
 
 
-
 ## Potential Improvements
-
-
 - Add user authentication with admin and customer roles
 - Replace Thymeleaf frontend with React or Angular for modern SPA experience
 - Implement order history and tracking system
@@ -85,8 +64,6 @@ Visit [http://localhost:8080/mainscreen](http://localhost:8080/mainscreen) in yo
 
 ## Author
 
-
 **Cody Holm**
-
 
 - GitHub: [@CodyHolm](https://github.com/CodyHolm)

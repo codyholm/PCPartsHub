@@ -144,6 +144,7 @@ textarea:focus {
     gap: 6px;
     white-space: nowrap;
     text-decoration: none;
+    box-shadow: none !important;
 }
 
 .btn:focus {
@@ -155,16 +156,19 @@ textarea:focus {
 .btn-primary {
     background-color: var(--primary);
     color: white;
+    box-shadow: none !important;
 }
 
 .btn-primary:hover {
     background-color: var(--primary-dark);
     transform: translateY(-1px);
     color: white;
+    box-shadow: none !important;
 }
 
 .btn-primary:active {
     transform: translateY(0);
+    box-shadow: none !important;
 }
 
 /* Ensure no box-shadow on any buttons */
